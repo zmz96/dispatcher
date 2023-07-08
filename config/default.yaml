@@ -1,0 +1,13 @@
+DB.USER = postgres
+DB.PASS = 123
+DB.HOST = localhost
+DB.PORT = 5432
+DB.NAME = dispatcher
+DB.SSL_MODE = disable
+DB.TIME_ZONE = Asia/Tehran
+
+HTTP_SERVER.HOST = 127.0.0.1
+HTTP_SERVER.PORT = 8082
+HTTP_SERVER.LOG_FILE_NAME = "http_server.log"
+# DebugLevel(-1),InfoLevel(0),WarnLevel(1),ErrorLevel(2),DPanicLevel(3),PanicLevel(4),FatalLevel(5)
+HTTP_SERVER.LOG_LEVEL = -1
