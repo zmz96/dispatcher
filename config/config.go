@@ -27,7 +27,7 @@ type Configs struct {
 	} `mapstructure:"db"`
 }
 
-func Parse(logger log.Logger) Configs {
+func Parse() Configs {
 	if err := viperInstance.Unmarshal(&Config); err != nil {
 		log.Fatalf("cannot read config file %s", err)
 	}

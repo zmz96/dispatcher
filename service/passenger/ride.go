@@ -2,6 +2,7 @@ package passenger
 
 import (
 	"dispatcher/model"
+	"dispatcher/service/dispatcher"
 
 	"github.com/go-kit/kit/log"
 
@@ -24,6 +25,12 @@ func NewPassengerRideService(logger log.Logger, db *gorm.DB) PassengerRideServic
 	}
 }
 
-func (s *passengerRideService) NewRide(ride *model.Ride) error {
-	return s.db.Create(ride).Error
+func (s *passengerRideService) NewRide(ride *model.Ride) (err error) {
+	driverID, err := dispatcher.Dispatch(ride)
+	if err != nil {
+		return
+	}
+	ride.DriverID = driverID
+	err = s.db.Create(ride).Error
+	return
 }

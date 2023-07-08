@@ -6,11 +6,12 @@ import (
 	"errors"
 )
 
-func Dispatch(ride *model.Ride) error {
-	driverID := driver.Manager.GetNextAvailableDriver()
+func Dispatch(ride *model.Ride) (driverID string, err error) {
+	driverID = driver.Manager.GetNextAvailableDriver()
 	if len(driverID) == 0 {
-		return errors.New("No Available Driver")
+		err = errors.New("No Available Driver")
+		return
 	}
 	driver.Manager.Assign(driverID, ride)
-	return nil
+	return
 }

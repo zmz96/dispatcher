@@ -1,12 +1,13 @@
 package model
 
-import "time"
+import (
+	"time"
+)
 
 type Ride struct {
-	ID          uint      `json:"id"`
-	CreatedAt   time.Time `json:"created_at"`
-	UpdatedAt   time.Time `json:"updated_at"`
-	UUID        string    `json:"uuid"`
+	UUID        string    `json:"id"`
+	CreatedAt   time.Time `json:"-"`
+	UpdatedAt   time.Time `json:"-"`
 	PassengerID string    `json:"-"`
 	DriverID    string    `json:"-"`
 	Lat         float64   `json:"lat"`

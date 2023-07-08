@@ -1,4 +1,4 @@
-package api
+package driverapi
 
 import (
 	"dispatcher/service/driver"
